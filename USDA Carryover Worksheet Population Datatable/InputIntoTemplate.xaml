@@ -10,7 +10,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2293.33333333333,15394.6666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2293.33333333333,15814</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -64,7 +64,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Data Into Template" sap:VirtualizedContainerService.HintSize="2273.33333333333,15294.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Input Data Into Template" sap:VirtualizedContainerService.HintSize="2273.33333333333,15714" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="Workbook" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="filteredPriorDT" />
@@ -89,15 +89,16 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="2231.33333333333,15202.6666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[in_currentWorksheetFilepath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="2231.33333333333,15622" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[in_currentWorksheetFilepath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="2197.33333333333,15094" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="2197.33333333333,15513.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="treasuryColumn" />
+              <Variable x:TypeArguments="x:Int32" Default="6" Name="count" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -105,21 +106,21 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:ExcelReadColumn DisplayName="Read Column" sap:VirtualizedContainerService.HintSize="2155.33333333333,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadColumn_1" Result="[treasuryColumn]" SheetName="[in_currentWorksheetName]" StartingCell="H3" />
-            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="2155.33333333333,1215.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[treasuryColumn]">
+            <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="2155.33333333333,1209.33333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[treasuryColumn]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="code" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1186.66666666667,1080" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1186.66666666667,1074.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[code.ToString.Contains(&quot;*&quot;)]" sap:VirtualizedContainerService.HintSize="1144.66666666667,988" sap2010:WorkflowViewState.IdRef="If_20">
+                    <If Condition="[code.ToString.Contains(&quot;*&quot;)]" sap:VirtualizedContainerService.HintSize="1144.66666666667,982.666666666667" sap2010:WorkflowViewState.IdRef="If_20">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="614.666666666667,837.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                        <Sequence sap:VirtualizedContainerService.HintSize="614.666666666667,833.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_28">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:Int32" Default="0" Name="count" />
                           </Sequence.Variables>
@@ -128,17 +129,17 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="572.666666666667,745.333333333333" sap2010:WorkflowViewState.IdRef="DoWhile_4">
+                          <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="572.666666666667,741.333333333333" sap2010:WorkflowViewState.IdRef="DoWhile_4">
                             <DoWhile.Condition>
                               <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="count &lt; 6" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                             </DoWhile.Condition>
-                            <Sequence sap:VirtualizedContainerService.HintSize="526,580.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                            <Sequence sap:VirtualizedContainerService.HintSize="526,578" sap2010:WorkflowViewState.IdRef="Sequence_29">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_31">
+                              <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_31">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:String">[wildcardTreasury]</OutArgument>
                                 </Assign.To>
@@ -146,9 +147,9 @@
                                   <InArgument x:TypeArguments="x:String">[code.ToString.Substring(0,2) + (in_currentYear - count).ToString.Substring(2) + code.ToString.Substring(4)]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <If Condition="[treasurySymbols.Contains(wildcardTreasury) = False]" sap:VirtualizedContainerService.HintSize="484,284.666666666667" sap2010:WorkflowViewState.IdRef="If_21">
+                              <If Condition="[treasurySymbols.Contains(wildcardTreasury) = False]" sap:VirtualizedContainerService.HintSize="484,283.333333333333" sap2010:WorkflowViewState.IdRef="If_21">
                                 <If.Then>
-                                  <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="237.333333333333,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Add">
+                                  <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_3" MethodName="Add">
                                     <InvokeMethod.TargetObject>
                                       <InArgument x:TypeArguments="sc:ArrayList">[treasurySymbols]</InArgument>
                                     </InvokeMethod.TargetObject>
@@ -156,7 +157,7 @@
                                   </InvokeMethod>
                                 </If.Then>
                               </If>
-                              <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_32">
+                              <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_32">
                                 <Assign.To>
                                   <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
                                 </Assign.To>
@@ -169,7 +170,7 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <If Condition="[treasurySymbols.Contains(code) = False]" sap:VirtualizedContainerService.HintSize="484,284.666666666667" sap2010:WorkflowViewState.IdRef="If_7">
+                        <If Condition="[treasurySymbols.Contains(code) = False]" sap:VirtualizedContainerService.HintSize="484,283.333333333333" sap2010:WorkflowViewState.IdRef="If_7">
                           <If.Then>
                             <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
                               <InvokeMethod.TargetObject>
@@ -185,34 +186,34 @@
                 </ActivityAction>
               </ui:ForEach.Body>
             </ui:ForEach>
-            <Sequence DisplayName="Filter Datatables By Treasury Symbols" sap:VirtualizedContainerService.HintSize="2155.33333333333,1494" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence DisplayName="Filter Datatables By Treasury Symbols" sap:VirtualizedContainerService.HintSize="2155.33333333333,1488" sap2010:WorkflowViewState.IdRef="Sequence_7">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="600.666666666667,1402" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[treasurySymbols]">
+              <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="600.666666666667,1396" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[treasurySymbols]">
                 <ui:ForEach.Body>
                   <ActivityAction x:TypeArguments="x:String">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:String" Name="code" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="564,1266.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="564,1261.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If Condition="[in_currentRC502dt.Select(&quot;Convert([Trsry Sym Cd], System.String) = '&quot; + code + &quot;'&quot;) .Length = 0]" sap:VirtualizedContainerService.HintSize="522,567.333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If Condition="[in_currentRC502dt.Select(&quot;Convert([Trsry Sym Cd], System.String) = '&quot; + code + &quot;'&quot;) .Length = 0]" sap:VirtualizedContainerService.HintSize="522,564.666666666667" sap2010:WorkflowViewState.IdRef="If_1">
                         <If.Else>
-                          <Sequence sap:VirtualizedContainerService.HintSize="376,416.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,415.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="sd:DataTable">[tempDataTable]</OutArgument>
                               </Assign.To>
@@ -245,7 +246,7 @@
                               </ui:FilterDataTable.SelectColumns>
                             </ui:FilterDataTable>
                             <ui:MergeDataTable Destination="[filteredCurrentDT]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[tempDataTable]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="sd:DataTable">[tempDatatable]</OutArgument>
                               </Assign.To>
@@ -256,15 +257,15 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <If Condition="[in_priorRC502dt.Select(&quot;Convert([Trsry Sym Cd], System.String) = '&quot; + code + &quot;'&quot;) .Length = 0]" sap:VirtualizedContainerService.HintSize="522,567.333333333333" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If Condition="[in_priorRC502dt.Select(&quot;Convert([Trsry Sym Cd], System.String) = '&quot; + code + &quot;'&quot;) .Length = 0]" sap:VirtualizedContainerService.HintSize="522,564.666666666667" sap2010:WorkflowViewState.IdRef="If_2">
                         <If.Else>
-                          <Sequence sap:VirtualizedContainerService.HintSize="376,416.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,415.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_3">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="sd:DataTable">[tempDataTable]</OutArgument>
                               </Assign.To>
@@ -297,7 +298,7 @@
                               </ui:FilterDataTable.SelectColumns>
                             </ui:FilterDataTable>
                             <ui:MergeDataTable Destination="[filteredPriorDT]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[tempDataTable]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_5">
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="sd:DataTable">[tempDatatable]</OutArgument>
                               </Assign.To>
@@ -313,7 +314,7 @@
                 </ui:ForEach.Body>
               </ui:ForEach>
             </Sequence>
-            <Sequence DisplayName="Retrieve Oldest Record In Program Year" sap:VirtualizedContainerService.HintSize="2155.33333333333,1103.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence DisplayName="Retrieve Oldest Record In Program Year" sap:VirtualizedContainerService.HintSize="2155.33333333333,1098" sap2010:WorkflowViewState.IdRef="Sequence_11">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Int32" Default="0" Name="count" />
               </Sequence.Variables>
@@ -324,7 +325,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Fscl Yr" DataTable="[filteredCurrentDT]" DisplayName="Sort Data Table" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[filteredCurrentDT]" SortOrder="Ascending" />
-              <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[oldestEntryYear]</OutArgument>
                 </Assign.To>
@@ -332,9 +333,9 @@
                   <InArgument x:TypeArguments="x:Int32">[Ctype(filteredCurrentDT(0)(4), Int32)]</InArgument>
                 </Assign.Value>
               </Assign>
-              <If Condition="[in_currentYear - 5 &lt;= oldestEntryYear]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_19">
+              <If Condition="[in_currentYear - 5 &lt;= oldestEntryYear]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_19">
                 <If.Then>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_29">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_29">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[oldestEntryYear]</OutArgument>
                     </Assign.To>
@@ -344,7 +345,7 @@
                   </Assign>
                 </If.Then>
               </If>
-              <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[newColumnCount]</OutArgument>
                 </Assign.To>
@@ -352,11 +353,11 @@
                   <InArgument x:TypeArguments="x:Int32">[in_currentYear - oldestEntryYear - 5]</InArgument>
                 </Assign.Value>
               </Assign>
-              <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,492.666666666667" sap2010:WorkflowViewState.IdRef="DoWhile_2">
+              <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,490.666666666667" sap2010:WorkflowViewState.IdRef="DoWhile_2">
                 <DoWhile.Condition>
                   <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="in_currentYear - count &gt;= oldestEntryYear" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
                 </DoWhile.Condition>
-                <Sequence sap:VirtualizedContainerService.HintSize="304,328" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <Sequence sap:VirtualizedContainerService.HintSize="304,327.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -368,7 +369,7 @@
                     </InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="x:Int32">[in_currentYear - count]</InArgument>
                   </InvokeMethod>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_14">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
                     </Assign.To>
@@ -379,14 +380,14 @@
                 </Sequence>
               </DoWhile>
             </Sequence>
-            <Sequence DisplayName="Insert RC-502 Datatables Into New Sheets" sap:VirtualizedContainerService.HintSize="2155.33333333333,1118.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Insert RC-502 Datatables Into New Sheets" sap:VirtualizedContainerService.HintSize="2155.33333333333,1116" sap2010:WorkflowViewState.IdRef="Sequence_8">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[filteredCurrentDT.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="622,391.333333333333" sap2010:WorkflowViewState.IdRef="If_3">
+              <If Condition="[filteredCurrentDT.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="622,390" sap2010:WorkflowViewState.IdRef="If_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -408,7 +409,7 @@
                   <ui:ExcelCopySheet DestinationFilePath="[in_currentWorksheetFilepath]" DestinationSheetName="Current RC-502 Values" DisplayName="Copy Sheet" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_3" SheetName="Sheet1" />
                 </If.Else>
               </If>
-              <If Condition="[filteredPriorDT.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="622,391.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
+              <If Condition="[filteredPriorDT.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="622,390" sap2010:WorkflowViewState.IdRef="If_4">
                 <If.Then>
                   <Sequence sap:VirtualizedContainerService.HintSize="376,240.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
                     <sap:WorkflowViewStateService.ViewState>
@@ -432,7 +433,7 @@
                 </ui:InvokeCode.Arguments>
               </ui:InvokeCode>
             </Sequence>
-            <Sequence sap:VirtualizedContainerService.HintSize="2155.33333333333,9710" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence sap:VirtualizedContainerService.HintSize="2155.33333333333,9694" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="templateDT" />
               </Sequence.Variables>
@@ -453,7 +454,7 @@
                   <OutArgument x:TypeArguments="x:String">[currentGOA]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <Assign sap:VirtualizedContainerService.HintSize="2113.33333333333,62" sap2010:WorkflowViewState.IdRef="Assign_9">
+              <Assign sap:VirtualizedContainerService.HintSize="2113.33333333333,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[rowsCount]</OutArgument>
                 </Assign.To>
@@ -663,11 +664,11 @@
                   </Sequence>
                 </DoWhile>
               </Sequence>
-              <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="2113.33333333333,6408.66666666667" sap2010:WorkflowViewState.IdRef="DoWhile_1">
+              <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="2113.33333333333,6393.33333333333" sap2010:WorkflowViewState.IdRef="DoWhile_1">
                 <DoWhile.Condition>
                   <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="activeRowIndex &lt;= rowsCount" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                 </DoWhile.Condition>
-                <Sequence sap:VirtualizedContainerService.HintSize="2066.66666666667,6245.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence sap:VirtualizedContainerService.HintSize="2066.66666666667,6230" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -678,17 +679,17 @@
                       <OutArgument x:TypeArguments="x:String">[currentGOA]</OutArgument>
                     </ui:ExcelReadCell.Result>
                   </ui:ExcelReadCell>
-                  <If Condition="[currentGOA &lt;&gt; Nothing]" sap:VirtualizedContainerService.HintSize="2024.66666666667,5953.33333333333" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If Condition="[currentGOA &lt;&gt; Nothing]" sap:VirtualizedContainerService.HintSize="2024.66666666667,5938" sap2010:WorkflowViewState.IdRef="If_6">
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="1878.66666666667,5804" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <Sequence sap:VirtualizedContainerService.HintSize="1878.66666666667,5788.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_15">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If Condition="[currentGOA.ToString.Contains(&quot;GOA&quot;) = False]" sap:VirtualizedContainerService.HintSize="1836.66666666667,5712" sap2010:WorkflowViewState.IdRef="If_5">
+                        <If Condition="[currentGOA.ToString.Contains(&quot;GOA&quot;) = False]" sap:VirtualizedContainerService.HintSize="1836.66666666667,5696.66666666667" sap2010:WorkflowViewState.IdRef="If_5">
                           <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="1690.66666666667,5562.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                            <Sequence sap:VirtualizedContainerService.HintSize="1690.66666666667,5547.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="ui:GenericValue" Name="CurrentMajClassCode" />
                                 <Variable x:TypeArguments="ui:GenericValue" Name="CurrentAproCode" />
@@ -731,7 +732,7 @@
                                   <OutArgument x:TypeArguments="ui:GenericValue">[CurrentOblExpCode]</OutArgument>
                                 </ui:ExcelReadCell.Result>
                               </ui:ExcelReadCell>
-                              <If Condition="[currentGOA.Length &gt; 3]" sap:VirtualizedContainerService.HintSize="1648.66666666667,213.333333333333" sap2010:WorkflowViewState.IdRef="If_23">
+                              <If Condition="[currentGOA.Length &gt; 3]" sap:VirtualizedContainerService.HintSize="1648.66666666667,210.666666666667" sap2010:WorkflowViewState.IdRef="If_23">
                                 <If.Then>
                                   <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_33">
                                     <Assign.To>
@@ -751,9 +752,9 @@
                                   <InArgument x:TypeArguments="x:String" xml:space="preserve">["[Goa Cd]='" + currentGOA.ToString +  "' AND [Apro Cd]= '" + CType(CurrentAproCode, Double).ToString + "' AND [Maj Cls Cd]= '" + CType(CurrentMajClassCode, Double).ToString + "' AND [Obj Cls Cd]= '" + CType(CurrentObjClsCode,Double).ToString + "' AND [Ppb Cd]='" + CType(CurrentPPB, Double).ToString +"' AND [Obl Exp Cd]='" + CType(CurrentOblExpCode, Double).ToString + "'"]</InArgument>
                                 </Assign.Value>
                               </Assign>
-                              <If Condition="[currentPPB = 0 AND CurrentMajClassCode = 0 AND zeroPPBListed.Contains(currentGOA) = False]" sap:VirtualizedContainerService.HintSize="1648.66666666667,288" sap2010:WorkflowViewState.IdRef="If_22">
+                              <If Condition="[currentPPB = 0 AND CurrentMajClassCode = 0 AND zeroPPBListed.Contains(currentGOA) = False]" sap:VirtualizedContainerService.HintSize="1648.66666666667,283.333333333333" sap2010:WorkflowViewState.IdRef="If_22">
                                 <If.Then>
-                                  <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="238,136" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="Add">
+                                  <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="238,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="Add">
                                     <InvokeMethod.TargetObject>
                                       <InArgument x:TypeArguments="sc:ArrayList">[zeroPPBListed]</InArgument>
                                     </InvokeMethod.TargetObject>
@@ -761,7 +762,7 @@
                                   </InvokeMethod>
                                 </If.Then>
                               </If>
-                              <If Condition="[filteredCurrentDT.Select(rowQueryExpression).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1648.66666666667,305.333333333333" sap2010:WorkflowViewState.IdRef="If_9">
+                              <If Condition="[filteredCurrentDT.Select(rowQueryExpression).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1648.66666666667,302.666666666667" sap2010:WorkflowViewState.IdRef="If_9">
                                 <If.Then>
                                   <Sequence sap:VirtualizedContainerService.HintSize="304,153.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -780,9 +781,9 @@
                                   </Sequence>
                                 </If.Then>
                               </If>
-                              <If Condition="[filteredPriorDT.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1648.66666666667,365.333333333333" sap2010:WorkflowViewState.IdRef="If_18">
+                              <If Condition="[filteredPriorDT.Rows.Count &gt; 0]" sap:VirtualizedContainerService.HintSize="1648.66666666667,360" sap2010:WorkflowViewState.IdRef="If_18">
                                 <If.Then>
-                                  <If Condition="[filteredPriorDT.Select(rowQueryExpression).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="484,213.333333333333" sap2010:WorkflowViewState.IdRef="If_10">
+                                  <If Condition="[filteredPriorDT.Select(rowQueryExpression).Count &gt; 0]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_10">
                                     <If.Then>
                                       <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
                                         <Assign.To>
@@ -805,9 +806,7 @@
                                 <DoWhile.Variables>
                                   <Variable x:TypeArguments="x:Int32" Name="activeYear" />
                                 </DoWhile.Variables>
-                                <DoWhile.Condition>
-                                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="count &lt; years.Count" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_8" />
-                                </DoWhile.Condition>
+                                <DoWhile.Condition>[count &lt;= years.Count]</DoWhile.Condition>
                                 <Sequence sap:VirtualizedContainerService.HintSize="1602,3180" sap2010:WorkflowViewState.IdRef="Sequence_20">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="x:String" Name="activeYearQuery" />
@@ -1051,7 +1050,28 @@
                 </Sequence>
               </DoWhile>
             </Sequence>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1967.33333333333,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="test" />
+            <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="2155.33333333333,415.333333333333" sap2010:WorkflowViewState.IdRef="DoWhile_7" Condition="[count &lt; newColumnCount + 6]">
+              <Sequence sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="sd:DataTable" Name="columnValues" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExcelReadRange AddHeaders="True" DataTable="[columnValues]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" Range="[yearColumns(count) + &quot;3:&quot; + yearColumns(count) + rowsCount.ToString]" SheetName="[in_currentWorksheetName]" />
+                <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_41">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </DoWhile>
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="2155.33333333333,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="test" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
