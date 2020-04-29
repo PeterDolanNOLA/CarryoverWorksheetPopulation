@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_PriorRC502File" Type="InArgument(x:String)" />
     <x:Property Name="out_PriorRC502dt" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_PriorRC502Name" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -85,13 +86,13 @@
             </sap:WorkflowViewStateService.ViewState>
             <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[SheetName]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[out_PriorRC502Name]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">[Workbook.GetWorkbookSheet(0)]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_PriorRC502dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[SheetName]">
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_PriorRC502dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[out_PriorRC502Name]">
               <ui:ExcelReadRange.Range>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" Value="" />

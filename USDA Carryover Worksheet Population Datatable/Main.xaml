@@ -57,6 +57,8 @@
       <Variable x:TypeArguments="x:Int32" Name="worksheetCount" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="currentWorksheetIndex" />
       <Variable x:TypeArguments="x:Int32" Default="2019" Name="currentYear" />
+      <Variable x:TypeArguments="x:String" Name="currentRC502Name" />
+      <Variable x:TypeArguments="x:String" Name="priorRC502Name" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -73,12 +75,14 @@
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_CurrentRC502File">[currentRC502File]</InArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CurrentRC502dt">[currentRC502dt]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_CurrentRC502Name">[currentRC502Name]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke RetrievePriorRC502Datatable workflow" sap:VirtualizedContainerService.HintSize="484,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="RetrievePriorRC502Datatable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_PriorRC502File">[priorRC502File]</InArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_PriorRC502dt">[priorRC502dt]</OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_PriorRC502Name">[priorRC502Name]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,575.333333333333" sap2010:WorkflowViewState.IdRef="DoWhile_1">
@@ -114,6 +118,8 @@
             <InArgument x:TypeArguments="x:Int32" x:Key="in_currentYear">[currentYear]</InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_currentWorksheetFilepath">[currentWorksheetFilepath]</InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="in_currentWorksheetFileName">[currentWorksheetFileName]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_currentRC502Name">[currentRC502Name]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_priorRC502Name">[priorRC502Name]</InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
         <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">

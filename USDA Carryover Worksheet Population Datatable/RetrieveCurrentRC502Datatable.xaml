@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="in_CurrentRC502File" Type="InArgument(x:String)" />
     <x:Property Name="out_CurrentRC502dt" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_CurrentRC502Name" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -73,9 +74,6 @@
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="SheetName" />
-            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -83,13 +81,13 @@
             </sap:WorkflowViewStateService.ViewState>
             <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[SheetName]</OutArgument>
+                <OutArgument x:TypeArguments="x:String">[out_CurrentRC502Name]</OutArgument>
               </Assign.To>
               <Assign.Value>
                 <InArgument x:TypeArguments="x:String">[Workbook.GetWorkbookSheet(0)]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_CurrentRC502dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[SheetName]">
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_CurrentRC502dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[out_CurrentRC502Name]">
               <ui:ExcelReadRange.Range>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" Value="" />
