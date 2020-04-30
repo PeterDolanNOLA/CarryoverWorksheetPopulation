@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2335.33333333333,17247.3333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2335.33333333333,17287.3333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -432,7 +432,7 @@
                   <ui:ExcelCopySheet DestinationFilePath="[in_currentWorksheetFilepath]" DestinationSheetName="Prior RC-502 Values" DisplayName="Copy Sheet" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_4" SheetName="Sheet1" />
                 </If.Else>
               </If>
-              <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim excel As Microsoft.Office.Interop.Excel.Application = New Microsoft.Office.Interop.Excel.ApplicationClass()&#xD;&#xA;Dim excelWorkbook  As Microsoft.Office.Interop.Excel.Workbook = Workbook.CurrentWorkbook&#xD;&#xA;Dim excelWorksheet As Microsoft.Office.Interop.Excel.Worksheet = CType(excelWorkbook.Sheets(1), Microsoft.Office.Interop.Excel.Worksheet)&#xD;&#xA;excelWorksheet.Delete()&#xD;&#xA;excelWorksheet = CType(excelWorkbook.Sheets(1), Microsoft.Office.Interop.Excel.Worksheet)&#xD;&#xA;excelWorksheet.Activate&#xD;&#xA;excelWorksheet.Cells.Range(&quot;A1&quot;).Select" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="622,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+              <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim excel As Microsoft.Office.Interop.Excel.Application = New Microsoft.Office.Interop.Excel.ApplicationClass()&#xA;Dim excelWorkbook  As Microsoft.Office.Interop.Excel.Workbook = Workbook.CurrentWorkbook&#xA;Dim excelWorksheet As Microsoft.Office.Interop.Excel.Worksheet = CType(excelWorkbook.Sheets(1), Microsoft.Office.Interop.Excel.Worksheet)&#xA;excelWorksheet.Delete()&#xA;excelWorksheet = CType(excelWorkbook.Sheets(1), Microsoft.Office.Interop.Excel.Worksheet)&#xA;excelWorksheet.Activate&#xA;excelWorksheet.Cells.Range(&quot;A1&quot;).Select" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="622,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
                 <ui:InvokeCode.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="FilePath">[in_currentWorksheetFilepath]</InArgument>
                   <InArgument x:TypeArguments="ui:WorkbookApplication" x:Key="Workbook">[Workbook]</InArgument>
@@ -443,6 +443,7 @@
             <Sequence sap:VirtualizedContainerService.HintSize="2197.33333333333,10212" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="templateDT" />
+                <Variable x:TypeArguments="x:Int32" Default="0" Name="count" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -470,9 +471,6 @@
                 </Assign.Value>
               </Assign>
               <Sequence sap:VirtualizedContainerService.HintSize="2155.33333333333,2898" sap2010:WorkflowViewState.IdRef="Sequence_31">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="x:Int32" Default="0" Name="count" />
-                </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
