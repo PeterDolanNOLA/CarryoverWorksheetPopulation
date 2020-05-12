@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2335.33333333333,17287.3333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2335.33333333333,17086.6666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -66,7 +66,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Data Into Template" sap:VirtualizedContainerService.HintSize="2315.33333333333,17187.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Input Data Into Template" sap:VirtualizedContainerService.HintSize="2315.33333333333,16986.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="Workbook" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="filteredPriorDT" />
@@ -97,13 +97,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="2273.33333333333,17095.3333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[in_currentWorksheetFilepath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="2273.33333333333,16894.6666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[in_currentWorksheetFilepath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="2239.33333333333,16986.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="2239.33333333333,16786" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="treasuryColumn" />
             </Sequence.Variables>
@@ -440,7 +440,7 @@
                 </ui:InvokeCode.Arguments>
               </ui:InvokeCode>
             </Sequence>
-            <Sequence sap:VirtualizedContainerService.HintSize="2197.33333333333,10212" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence sap:VirtualizedContainerService.HintSize="2197.33333333333,10113.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="templateDT" />
                 <Variable x:TypeArguments="x:Int32" Default="0" Name="count" />
@@ -457,11 +457,6 @@
                   </InArgument>
                 </ui:ExcelReadRange.Range>
               </ui:ExcelReadRange>
-              <ui:ExcelReadCell Cell="[&quot;B&quot; + activeRowIndex.ToString]" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="2155.33333333333,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_8" SheetName="[in_currentWorksheetName]">
-                <ui:ExcelReadCell.Result>
-                  <OutArgument x:TypeArguments="x:String">[currentGOA]</OutArgument>
-                </ui:ExcelReadCell.Result>
-              </ui:ExcelReadCell>
               <Assign sap:VirtualizedContainerService.HintSize="2155.33333333333,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Int32">[rowsCount]</OutArgument>
@@ -1185,7 +1180,6 @@
               </Sequence>
             </DoWhile>
             <ui:ExcelSaveWorkbook DisplayName="Save Workbook" sap:VirtualizedContainerService.HintSize="2197.33333333333,22" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="2197.33333333333,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="test" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
