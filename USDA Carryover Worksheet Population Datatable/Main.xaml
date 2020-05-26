@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="594,1212" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="594,1252" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
       <x:String>System.Activities</x:String>
@@ -53,19 +53,16 @@
       <Variable x:TypeArguments="x:String" Default="C:\Users\pdolan\Documents\RD RC 502 as of 9.30.19.xlsx" Name="priorRC502File" />
       <Variable x:TypeArguments="sd:DataTable" Name="currentRC502dt" />
       <Variable x:TypeArguments="sd:DataTable" Name="priorRC502dt" />
-      <Variable x:TypeArguments="x:String" Name="templateFile">
-        <Variable.Default>
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;C:\Users\&quot; + Environment.UserName.ToString+&quot;\KOR - Koniag, Inc\USDA RPA - Documents\Carryover Worksheet Population Bot\Carryover Templates\Carryover Worksheet Templates.xlsx&quot;" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="[&quot;C:\Users\&quot; + Environment.UserName.ToString+&quot;\KOR - Koniag, Inc\USDA RPA - Documents\Carryover Worksheet Population Bot\Carryover Templates\Carryover Worksheet Templates.xlsx&quot;]" Name="templateFile" />
       <Variable x:TypeArguments="x:Int32" Name="worksheetCount" />
       <Variable x:TypeArguments="x:Int32" Default="0" Name="currentWorksheetIndex" />
       <Variable x:TypeArguments="x:Int32" Default="[now.Year]" Name="currentYear" />
       <Variable x:TypeArguments="x:String" Name="currentRC502Name" />
       <Variable x:TypeArguments="x:String" Name="priorRC502Name" />
-      <Variable x:TypeArguments="x:String" Name="sharePointName">
+      <Variable x:TypeArguments="x:String" Default="KOR - Koniag, Inc\USDA RPA - Documents" Name="sharePointName" />
+      <Variable x:TypeArguments="x:String" Name="runType">
         <Variable.Default>
-          <Literal x:TypeArguments="x:String">KOR - Koniag, Inc\USDA RPA - Documents</Literal>
+          <Literal x:TypeArguments="x:String">Actual</Literal>
         </Variable.Default>
       </Variable>
     </Sequence.Variables>
@@ -82,19 +79,40 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke RetrieveCurrentRC502Datatable workflow" sap:VirtualizedContainerService.HintSize="484,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="RetrieveCurrentRC502Datatable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_CurrentRC502File">[currentRC502File]</InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CurrentRC502dt">[currentRC502dt]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_CurrentRC502Name">[currentRC502Name]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_CurrentRC502dt">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="currentRC502dt" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_CurrentRC502Name">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="currentRC502Name" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TemplateFile">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="templateFile" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_RunType">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="runType" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke RetrievePriorRC502Datatable workflow" sap:VirtualizedContainerService.HintSize="484,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="RetrievePriorRC502Datatable.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_PriorRC502File">[priorRC502File]</InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_PriorRC502dt">[priorRC502dt]</OutArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_PriorRC502Name">[priorRC502Name]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_PriorRC502dt">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="priorRC502dt" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_PriorRC502Name">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="priorRC502Name" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TemplateFile">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="templateFile" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_RunType">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="runType" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,575.333333333333" sap2010:WorkflowViewState.IdRef="DoWhile_1" Condition="[currentWorksheetIndex &lt;= worksheetCount]">
+    <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,575.333333333333" sap2010:WorkflowViewState.IdRef="DoWhile_1">
+      <DoWhile.Condition>
+        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="currentWorksheetIndex &lt;= worksheetCount" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+      </DoWhile.Condition>
       <Sequence sap:VirtualizedContainerService.HintSize="376,407.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="currentWorksheetName" />
@@ -108,24 +126,58 @@
         </sap:WorkflowViewStateService.ViewState>
         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CreateNewFileFromTemplate workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="CreateNewFileFromTemplate.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_currentWorksheetIndex">[currentWorksheetIndex]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_templateFile">[templateFile]</InArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_newSheetName">[currentWorksheetName]</OutArgument>
-            <OutArgument x:TypeArguments="x:String" x:Key="out_newSheetFilepath">[currentWorksheetFilepath]</OutArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_currentYear">[currentYear]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="out_newSheetFileName">[currentWorksheetFileName]</InArgument>
+            <InArgument x:TypeArguments="x:Int32" x:Key="in_currentWorksheetIndex">
+              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="currentWorksheetIndex" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_templateFile">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="templateFile" />
+            </InArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_newSheetName">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="currentWorksheetName" />
+            </OutArgument>
+            <OutArgument x:TypeArguments="x:String" x:Key="out_newSheetFilepath">
+              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="currentWorksheetFilepath" />
+            </OutArgument>
+            <InArgument x:TypeArguments="x:Int32" x:Key="in_currentYear">
+              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="currentYear" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="out_newSheetFileName">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="currentWorksheetFileName" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_runType">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="runType" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
         <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InputIntoTemplate workflow" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="InputIntoTemplate.xaml">
           <ui:InvokeWorkflowFile.Arguments>
-            <InArgument x:TypeArguments="x:String" x:Key="in_currentWorksheetName">[currentWorksheetName]</InArgument>
-            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_currentRC502dt">[currentRC502dt]</InArgument>
-            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_priorRC502dt">[priorRC502dt]</InArgument>
-            <InArgument x:TypeArguments="x:Int32" x:Key="in_currentYear">[currentYear]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_currentWorksheetFilepath">[currentWorksheetFilepath]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_currentWorksheetFileName">[currentWorksheetFileName]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_currentRC502Name">[currentRC502Name]</InArgument>
-            <InArgument x:TypeArguments="x:String" x:Key="in_priorRC502Name">[priorRC502Name]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_currentWorksheetName">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="currentWorksheetName" />
+            </InArgument>
+            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_currentRC502dt">
+              <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="currentRC502dt" />
+            </InArgument>
+            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_priorRC502dt">
+              <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="priorRC502dt" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:Int32" x:Key="in_currentYear">
+              <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="currentYear" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_currentWorksheetFilepath">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="currentWorksheetFilepath" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_currentWorksheetFileName">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="currentWorksheetFileName" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_currentRC502Name">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="currentRC502Name" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_priorRC502Name">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="priorRC502Name" />
+            </InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_runType">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="runType" />
+            </InArgument>
           </ui:InvokeWorkflowFile.Arguments>
         </ui:InvokeWorkflowFile>
         <Assign sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_1">

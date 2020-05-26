@@ -6,11 +6,12 @@
     <x:Property Name="out_newSheetFilepath" Type="OutArgument(x:String)" />
     <x:Property Name="in_currentYear" Type="InArgument(x:Int32)" />
     <x:Property Name="out_newSheetFileName" Type="InArgument(x:String)" />
+    <x:Property Name="in_runType" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>594,2276.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>594,2933.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateNewFileFromTemplate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="22">
@@ -62,7 +63,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateNewFileFromTemplate" sap:VirtualizedContainerService.HintSize="602,2072" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreateNewFileFromTemplate" sap:VirtualizedContainerService.HintSize="602,2728.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="Workbook" />
     </Sequence.Variables>
@@ -71,13 +72,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="560,1980" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Visible="False" Workbook="[Workbook]" WorkbookPath="[in_templateFile]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="560,2538" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Visible="False" Workbook="[Workbook]" WorkbookPath="[in_templateFile]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,1871.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,2429.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="templateSheetName" />
               <Variable x:TypeArguments="x:Boolean" Name="pathExists" />
@@ -108,18 +109,43 @@
                 <InArgument x:TypeArguments="x:String">[templateSheetName.Remove(templateSheetName.IndexOf("Template")).Trim]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:PathExists DisplayName="Path Exists" Exists="[pathExists]" sap:VirtualizedContainerService.HintSize="484,90.6666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_templateFile.Remove(in_templateFile.IndexOf(&quot;Carryover Templates&quot;)) + &quot;Completed Estimated Carryover Worksheets&quot; + &quot;/&quot; + now.ToShortDateString.Replace(&quot;/&quot;,&quot;-&quot;) + &quot;/&quot;]" PathType="File" />
-            <If Condition="[pathExists]" sap:VirtualizedContainerService.HintSize="484,236" sap2010:WorkflowViewState.IdRef="If_1">
+            <ui:PathExists DisplayName="Path Exists" Exists="[pathExists]" sap:VirtualizedContainerService.HintSize="484,90.6666666666667" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[&quot;C:\Users\&quot; +Environment.UserName.ToString  +&quot;\Documents\Temp&quot;+ &quot;\&quot;]" PathType="File" />
+            <If Condition="[pathExists]" sap:VirtualizedContainerService.HintSize="484,236" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Else>
-                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,85.3333333333333" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[in_templateFile.Remove(in_templateFile.IndexOf(&quot;Carryover Templates&quot;)) + &quot;Completed Estimated Carryover Worksheets&quot; + &quot;/&quot; + now.ToShortDateString.Replace(&quot;/&quot;,&quot;-&quot;) + &quot;/&quot;]" />
+                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,85.3333333333333" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[&quot;C:\Users\&quot; +Environment.UserName.ToString  +&quot;\Documents\Temp&quot;+ &quot;\&quot;]" />
               </If.Else>
             </If>
-            <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <ui:PathExists DisplayName="Path Exists" Exists="[pathExists]" sap:VirtualizedContainerService.HintSize="484,90.6666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_templateFile.Remove(in_templateFile.IndexOf(&quot;Carryover Templates&quot;)) + &quot;Completed &quot; +in_runType + &quot; Carryover Worksheets&quot; + &quot;/&quot; + now.ToShortDateString.Replace(&quot;/&quot;,&quot;-&quot;) + &quot;/&quot;]" PathType="File" />
+            <If Condition="[pathExists]" sap:VirtualizedContainerService.HintSize="484,236" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Else>
+                <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,85.3333333333333" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[in_templateFile.Remove(in_templateFile.IndexOf(&quot;Carryover Templates&quot;)) + &quot;Completed &quot; + in_runType +&quot; Carryover Worksheets&quot; + &quot;/&quot; + now.ToShortDateString.Replace(&quot;/&quot;,&quot;-&quot;) + &quot;/&quot;]" />
+              </If.Else>
+            </If>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,232.666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="304,154" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_newSheetFilepath]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[in_templateFile.Remove(in_templateFile.IndexOf("Carryover Templates")) + "\Completed Estimated Carryover Worksheets"+ "\" + now.ToShortDateString.Replace("/","-") + "\" + in_currentYear.ToString + " " + out_newSheetName + " Estimated Carryover " + now.ToShortDateString.Replace("/","-") +".xlsx"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:CommentOut.Body>
+            </ui:CommentOut>
+            <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[out_newSheetFilepath]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[in_templateFile.Remove(in_templateFile.IndexOf("Carryover Templates")) + "\Completed Estimated Carryover Worksheets"+ "\" + now.ToShortDateString.Replace("/","-") + "\" + in_currentYear.ToString + " " + out_newSheetName + " Estimated Carryover " + now.ToShortDateString.Replace("/","-") +".xlsx"]</InArgument>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["C:\Users\" +Environment.UserName.ToString  +"\Documents\Temp" + "\" + in_currentYear.ToString + " " + out_newSheetName + " " + in_runType +" Carryover " + now.ToShortDateString.Replace("/","-") +".xlsx"]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign sap:VirtualizedContainerService.HintSize="484,62" sap2010:WorkflowViewState.IdRef="Assign_4">
@@ -136,15 +162,15 @@
                 <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[out_newSheetFilepath]" />
               </If.Then>
             </If>
-            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="484,418.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="484,298" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
                 <ui:ExcelCopySheet DestinationFilePath="[out_newSheetFilepath]" DestinationSheetName="[out_newSheetName]" DisplayName="Copy Sheet" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="ExcelCopySheet_1" SheetName="[templateSheetName]" />
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,246.666666666667" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404.666666666667,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
@@ -169,5 +195,6 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
+    <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="560,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[Workbook]" />
   </Sequence>
 </Activity>
