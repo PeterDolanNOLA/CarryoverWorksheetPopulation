@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2493.33333333333,18081.3333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2493.33333333333,18520</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="48">
@@ -70,7 +70,7 @@
       <AssemblyReference>Microsoft.Graph.Core</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Data Into Template" sap:VirtualizedContainerService.HintSize="2503.33333333333,17876.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Input Data Into Template" sap:VirtualizedContainerService.HintSize="2503.33333333333,18315.3333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="Workbook" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="filteredPriorDT" />
@@ -101,13 +101,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="2461.33333333333,17784.6666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[in_currentWorksheetFilepath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="2461.33333333333,18223.3333333333" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[in_currentWorksheetFilepath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="2427.33333333333,17676" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="2427.33333333333,18114.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="treasuryColumn" />
             </Sequence.Variables>
@@ -444,7 +444,7 @@
                 </ui:InvokeCode.Arguments>
               </ui:InvokeCode>
             </Sequence>
-            <Sequence sap:VirtualizedContainerService.HintSize="2385.33333333333,10642.6666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence sap:VirtualizedContainerService.HintSize="2385.33333333333,10862" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="templateDT" />
                 <Variable x:TypeArguments="x:Int32" Default="0" Name="count" />
@@ -469,194 +469,205 @@
                   <InArgument x:TypeArguments="x:Int32">[templateDT.Rows.Count]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Sequence sap:VirtualizedContainerService.HintSize="2343.33333333333,3278" sap2010:WorkflowViewState.IdRef="Sequence_31">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_34">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[xltitle]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[in_currentYear.ToString + " " + in_currentWorksheetName +" " +in_runType+" Carryover " + now.ToShortDateString.Replace("/","-")+ " - Excel"]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_35">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[xlname]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[in_currentYear.ToString + " " + in_currentWorksheetName + " " + in_runType+" Carryover " + now.ToShortDateString.Replace("/","-")]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <Assign sap:VirtualizedContainerService.HintSize="484,65.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_36">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[xlfile]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_currentYear.ToString + " " + in_currentWorksheetName +
+              <ui:BlockUserInput TimeoutMS="{x:Null}" BlockType="All" DisplayName="Block User Input" sap:VirtualizedContainerService.HintSize="2343.33333333333,2887.33333333333" sap2010:WorkflowViewState.IdRef="BlockUserInput_1" KeyModifiers="Alt" SpecialKey="True">
+                <ui:BlockUserInput.Body>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,2760" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence sap:VirtualizedContainerService.HintSize="526,2668" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_34">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[xltitle]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_currentYear.ToString + " " + in_currentWorksheetName +" " +in_runType+" Carryover " + now.ToShortDateString.Replace("/","-")+ " - Excel"]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_35">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[xlname]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_currentYear.ToString + " " + in_currentWorksheetName + " " + in_runType+" Carryover " + now.ToShortDateString.Replace("/","-")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="484,65.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_36">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[xlfile]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_currentYear.ToString + " " + in_currentWorksheetName +
 " " + in_runType +" Carryover " + now.ToShortDateString.Replace("/","-") + ".xlsx"]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_37">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[xlsheet]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">["Sheet " + in_currentWorksheetName]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[&quot;&quot; +&quot;[k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][d(ctrl)] [u(ctrl)]&quot;]">
-                  <ui:TypeInto.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:TypeInto.Target>
-                </ui:TypeInto>
-                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'menu button'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="right" KeyModifiers="Shift" SpecialKey="True">
-                  <ui:SendHotkey.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="fc7a7ac0bdedd19f2c4d70310bb5df82" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:SendHotkey.Target>
-                </ui:SendHotkey>
-                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'tab item  Sheet DLTB'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="c" KeyModifiers="Ctrl">
-                  <ui:SendHotkey.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0daa7d86f68d36bb0cb6a9e13a12c9a1" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:SendHotkey.Target>
-                </ui:SendHotkey>
-                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'tab item  Sheet DLTB'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="up" KeyModifiers="Ctrl" SpecialKey="True">
-                  <ui:SendHotkey.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0daa7d86f68d36bb0cb6a9e13a12c9a1" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:SendHotkey.Target>
-                </ui:SendHotkey>
-                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'tab item  Sheet DLTB'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="up" KeyModifiers="Ctrl" SpecialKey="True">
-                  <ui:SendHotkey.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0daa7d86f68d36bb0cb6a9e13a12c9a1" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:SendHotkey.Target>
-                </ui:SendHotkey>
-                <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'tab item  Sheet DLTB'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="up" KeyModifiers="Ctrl" SpecialKey="True">
-                  <ui:SendHotkey.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0daa7d86f68d36bb0cb6a9e13a12c9a1" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:SendHotkey.Target>
-                </ui:SendHotkey>
-                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[&quot;&quot; + &quot;[k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)]&quot;]">
-                  <ui:TypeInto.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                      <ui:Target.TimeoutMS>
-                        <InArgument x:TypeArguments="x:Int32" />
-                      </ui:Target.TimeoutMS>
-                      <ui:Target.WaitForReady>
-                        <InArgument x:TypeArguments="ui:WaitForReady" />
-                      </ui:Target.WaitForReady>
-                    </ui:Target>
-                  </ui:TypeInto.Target>
-                </ui:TypeInto>
-                <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,490.666666666667" sap2010:WorkflowViewState.IdRef="DoWhile_5">
-                  <DoWhile.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="count &lt; newColumnCount" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
-                  </DoWhile.Condition>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,327.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_32">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[&quot;&quot; +&quot;[d(ctrl)]v[u(ctrl)][k(right)][k(right)]&quot;]">
-                      <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:TypeInto.Target>
-                    </ui:TypeInto>
-                    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_38">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
-                      </Assign.Value>
-                    </Assign>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_37">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[xlsheet]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">["Sheet " + in_currentWorksheetName]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[&quot;&quot; +&quot;[k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][d(ctrl)] [u(ctrl)]&quot;]">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'menu button'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="right" KeyModifiers="Shift" SpecialKey="True">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="fc7a7ac0bdedd19f2c4d70310bb5df82" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'tab item  Sheet DLTB'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="c" KeyModifiers="Ctrl">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0daa7d86f68d36bb0cb6a9e13a12c9a1" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'tab item  Sheet DLTB'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="up" KeyModifiers="Ctrl" SpecialKey="True">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0daa7d86f68d36bb0cb6a9e13a12c9a1" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'tab item  Sheet DLTB'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="up" KeyModifiers="Ctrl" SpecialKey="True">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0daa7d86f68d36bb0cb6a9e13a12c9a1" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'tab item  Sheet DLTB'" sap:VirtualizedContainerService.HintSize="484,154.666666666667" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="up" KeyModifiers="Ctrl" SpecialKey="True">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="0daa7d86f68d36bb0cb6a9e13a12c9a1" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[&quot;&quot; + &quot;[k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)][k(right)]&quot;]">
+                        <ui:TypeInto.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:TypeInto.Target>
+                      </ui:TypeInto>
+                      <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,490.666666666667" sap2010:WorkflowViewState.IdRef="DoWhile_5">
+                        <DoWhile.Condition>
+                          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="count &lt; newColumnCount" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_5" />
+                        </DoWhile.Condition>
+                        <Sequence sap:VirtualizedContainerService.HintSize="376,327.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[&quot;&quot; +&quot;[d(ctrl)]v[u(ctrl)][k(right)][k(right)]&quot;]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_38">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </DoWhile>
+                      <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_39">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:ExcelWriteCell Cell="K1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="484,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="[in_currentWorksheetName]" Text="[now.Year.ToString + &quot; &quot; + in_runType +&quot; Carryover&quot;]" />
+                      <ui:ExcelWriteCell Cell="K2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="484,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="[in_currentWorksheetName]" Text="[now.ToShortDateString]" />
+                    </Sequence>
                   </Sequence>
-                </DoWhile>
-                <Assign sap:VirtualizedContainerService.HintSize="484,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_39">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:Int32">0</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <ui:ExcelWriteCell Cell="K1" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="484,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="[in_currentWorksheetName]" Text="[now.Year.ToString + &quot; &quot; + in_runType +&quot; Carryover&quot;]" />
-                <ui:ExcelWriteCell Cell="K2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="484,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="[in_currentWorksheetName]" Text="[now.ToShortDateString]" />
-                <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="484,570" sap2010:WorkflowViewState.IdRef="DoWhile_6">
-                  <DoWhile.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="count &lt; years.Count" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
-                  </DoWhile.Condition>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,406.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExcelWriteCell Cell="[yearColumns(count) + &quot;1&quot;]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="[in_currentWorksheetName]" Text="[&quot;FY&quot; + years(count).ToString]" />
-                    <ui:ExcelWriteCell Cell="[yearColumns(count) + &quot;2&quot;]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="[in_currentWorksheetName]" Text="[now.ToShortDateString]" />
-                    <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_40">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </Sequence>
-                </DoWhile>
-              </Sequence>
+                </ui:BlockUserInput.Body>
+              </ui:BlockUserInput>
+              <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="2343.33333333333,570" sap2010:WorkflowViewState.IdRef="DoWhile_6">
+                <DoWhile.Condition>
+                  <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="count &lt; years.Count" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_6" />
+                </DoWhile.Condition>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,406.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelWriteCell Cell="[yearColumns(count) + &quot;1&quot;]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="[in_currentWorksheetName]" Text="[&quot;FY&quot; + years(count).ToString]" />
+                  <ui:ExcelWriteCell Cell="[yearColumns(count) + &quot;2&quot;]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="[in_currentWorksheetName]" Text="[now.ToShortDateString]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_40">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </DoWhile>
               <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="2343.33333333333,7032.66666666667" sap2010:WorkflowViewState.IdRef="DoWhile_1">
                 <DoWhile.Condition>
                   <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="activeRowIndex &lt;= rowsCount" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
@@ -972,7 +983,7 @@
                                             </Sequence>
                                           </If.Then>
                                           <If.Else>
-                                            <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_24">
+                                            <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_24">
                                               <Assign.To>
                                                 <OutArgument x:TypeArguments="x:String">[currentCumlOblAmt]</OutArgument>
                                               </Assign.To>
@@ -1093,105 +1104,116 @@
                 </Sequence>
               </DoWhile>
             </Sequence>
-            <Assign sap:VirtualizedContainerService.HintSize="2385.33333333333,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_42">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[xltitle]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[xltitle.Replace("Excel", "Saved")]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="2385.33333333333,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_44">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int32">[newColumnCount]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int32">[newColumnCount + 5]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="2385.33333333333,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[&quot;&quot; + &quot;[k(left)][k(left)]&quot;]">
-              <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:TypeInto.Target>
-            </ui:TypeInto>
-            <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="2385.33333333333,932" sap2010:WorkflowViewState.IdRef="DoWhile_7">
-              <DoWhile.Condition>
-                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="newColumnCount &gt; 5" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
-              </DoWhile.Condition>
-              <Sequence sap:VirtualizedContainerService.HintSize="798,768.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_34">
-                <Sequence.Variables>
-                  <Variable x:TypeArguments="sd:DataTable" Name="columnValues" />
-                </Sequence.Variables>
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:ExcelReadRange AddHeaders="True" DataTable="[columnValues]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="756,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" Range="[yearColumns(newColumnCount) + &quot;3:&quot; + yearColumns(newColumnCount) + rowsCount.ToString]" SheetName="[in_currentWorksheetName]" />
-                <If Condition="[columnValues.Select(&quot;[Column1]&lt;&gt;'0'&quot;).Count = 0]" sap:VirtualizedContainerService.HintSize="756,476.666666666667" sap2010:WorkflowViewState.IdRef="If_25">
-                  <If.Then>
-                    <Sequence sap:VirtualizedContainerService.HintSize="376,327.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_35">
+            <ui:BlockUserInput TimeoutMS="{x:Null}" BlockType="All" DisplayName="Block User Input" sap:VirtualizedContainerService.HintSize="2385.33333333333,1528" sap2010:WorkflowViewState.IdRef="BlockUserInput_2" KeyModifiers="Alt" SpecialKey="True">
+              <ui:BlockUserInput.Body>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="886.666666666667,1400.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="844.666666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_42">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[xltitle]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[xltitle.Replace("Excel", "Saved")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="844.666666666667,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_44">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[newColumnCount]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[newColumnCount + 5]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="844.666666666667,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="[&quot;&quot; + &quot;[k(left)][k(left)]&quot;]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="844.666666666667,932" sap2010:WorkflowViewState.IdRef="DoWhile_7">
+                    <DoWhile.Condition>
+                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="newColumnCount &gt; 5" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                    </DoWhile.Condition>
+                    <Sequence sap:VirtualizedContainerService.HintSize="798,768.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="sd:DataTable" Name="columnValues" />
+                      </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[&quot;&quot; + &quot;[d(ctrl)]0[u(ctrl)][k(right)][d(ctrl)]0[u(ctrl)][k(left)][k(left)]&quot;]">
-                        <ui:TypeInto.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                            <ui:Target.TimeoutMS>
-                              <InArgument x:TypeArguments="x:Int32" />
-                            </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
-                          </ui:Target>
-                        </ui:TypeInto.Target>
-                      </ui:TypeInto>
-                      <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_43">
+                      <ui:ExcelReadRange AddHeaders="True" DataTable="[columnValues]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="756,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" Range="[yearColumns(newColumnCount) + &quot;3:&quot; + yearColumns(newColumnCount) + rowsCount.ToString]" SheetName="[in_currentWorksheetName]" />
+                      <If Condition="[columnValues.Select(&quot;[Column1]&lt;&gt;'0'&quot;).Count = 0]" sap:VirtualizedContainerService.HintSize="756,476.666666666667" sap2010:WorkflowViewState.IdRef="If_25">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,327.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="[&quot;&quot; + &quot;[d(ctrl)]0[u(ctrl)][k(right)][d(ctrl)]0[u(ctrl)][k(left)][k(left)]&quot;]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                            <Assign sap:VirtualizedContainerService.HintSize="334,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_43">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[xltitle]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[xltitle.Replace("Saved", "Excel")]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                        <If.Else>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[&quot;&quot; + &quot;[k(left)][k(left)]&quot;]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                        </If.Else>
+                      </If>
+                      <Assign sap:VirtualizedContainerService.HintSize="756,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_41">
                         <Assign.To>
-                          <OutArgument x:TypeArguments="x:String">[xltitle]</OutArgument>
+                          <OutArgument x:TypeArguments="x:Int32">[newColumnCount]</OutArgument>
                         </Assign.To>
                         <Assign.Value>
-                          <InArgument x:TypeArguments="x:String">[xltitle.Replace("Saved", "Excel")]</InArgument>
+                          <InArgument x:TypeArguments="x:Int32">[newColumnCount - 1]</InArgument>
                         </Assign.Value>
                       </Assign>
                     </Sequence>
-                  </If.Then>
-                  <If.Else>
-                    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'tab item  Sheet RHIF'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" Text="[&quot;&quot; + &quot;[k(left)][k(left)]&quot;]">
-                      <ui:TypeInto.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1d2b35bec5309ad1a9c5cf9f602be782" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='{{xltitle}}' /&gt;&lt;uia automationid='{{xlfile}}' cls='ExcelGrid' name='{{xlname}}' /&gt;&lt;uia automationid='{{in_currentWorksheetName}}' name='{{xlsheet}}' role='tab item' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:TypeInto.Target>
-                    </ui:TypeInto>
-                  </If.Else>
-                </If>
-                <Assign sap:VirtualizedContainerService.HintSize="756,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_41">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:Int32">[newColumnCount]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:Int32">[newColumnCount - 1]</InArgument>
-                  </Assign.Value>
-                </Assign>
-              </Sequence>
-            </DoWhile>
+                  </DoWhile>
+                </Sequence>
+              </ui:BlockUserInput.Body>
+            </ui:BlockUserInput>
             <ui:ExcelSaveWorkbook DisplayName="Save Workbook" sap:VirtualizedContainerService.HintSize="2385.33333333333,22" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
-            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\&quot; + Environment.UserName.ToString + &quot;\KOR - Koniag, Inc\USDA RPA - Documents\Carryover Worksheet Population Bot\Completed &quot; +in_runType+&quot; Carryover Worksheets\&quot; +&#xD;&#xA;now.ToShortDateString.Replace(&quot;/&quot;,&quot;-&quot;) + &quot;\&quot; + xlfile + &quot;.xlsx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="2385.33333333333,160" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[in_currentWorksheetFilepath]" />
+            <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\&quot; + Environment.UserName.ToString + &quot;\KOR - Koniag, Inc\USDA RPA - Documents\Carryover Worksheet Population Bot\Completed &quot; +in_runType+&quot; Carryover Worksheets\&quot; +&#xA;now.ToShortDateString.Replace(&quot;/&quot;,&quot;-&quot;) + &quot;\&quot; + xlfile + &quot;.xlsx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="2385.33333333333,160" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[in_currentWorksheetFilepath]" />
             <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="2385.33333333333,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[Workbook]" />
             <ui:Delete ContinueOnError="{x:Null}" sap:VirtualizedContainerService.HintSize="2385.33333333333,22" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[in_currentWorksheetFilepath]" />
           </Sequence>

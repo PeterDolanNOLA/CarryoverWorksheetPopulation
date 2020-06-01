@@ -35,7 +35,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="18">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -54,6 +54,8 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Retrieve_Worksheets" sap:VirtualizedContainerService.HintSize="722,639.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -100,7 +102,7 @@
         </ui:ExcelApplicationScope>
       </If.Then>
       <If.Else>
-        <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="Bot Does Not Have Acess To Template File" />
+        <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="[&quot;USDA Carryover Worksheet Population bot does not have access to the template file located at &quot; + in_templateFile +&quot;. Check that the file is accessible through File Explorer. If the SharePoint folder and file are not accessible, go to https://support.office.com/en-us/article/sync-sharepoint-and-teams-files-with-the-onedrive-sync-app-6de9ede8-5b6e-4503-80b2-6190f3354a88 and follow the directions to Sync the USDA Carryover Worksheet Population Bot folder.&quot;]" />
       </If.Else>
     </If>
   </Sequence>
