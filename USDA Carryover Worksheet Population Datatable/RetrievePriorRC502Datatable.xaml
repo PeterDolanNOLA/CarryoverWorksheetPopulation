@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1287.33333333333,6669.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1287.33333333333,6861.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RetrievePriorRC502Datatable_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -62,7 +62,7 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="RetrievePriorRC502Datatable" sap:VirtualizedContainerService.HintSize="1297.33333333333,6504.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="RetrievePriorRC502Datatable" sap:VirtualizedContainerService.HintSize="1297.33333333333,6656.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="SheetName" />
       <Variable x:TypeArguments="x:String" Name="folderPath" />
@@ -70,11 +70,7 @@
       <Variable x:TypeArguments="x:String" Name="priorRC502Filepath" />
       <Variable x:TypeArguments="x:String" Name="priorYearStr" />
       <Variable x:TypeArguments="s:String[]" Name="arrayOfFilepath" />
-      <Variable x:TypeArguments="x:Boolean" Name="correctHeaders">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" Value="True" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="correctHeaders" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -196,19 +192,19 @@
         <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="The September RC502 file is unavailable. Check to make sure file is available in the 'RC502s' folder of the SharePoint drive in a subfolder corresponding to the fiscal year." />
       </If.Then>
     </If>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1255.33333333333,5020.66666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[priorRC502Filepath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1255.33333333333,5172.66666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[priorRC502Filepath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,4912" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="622,5064" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="526,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="580,62" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[out_PriorRC502Name]</OutArgument>
               </Assign.To>
@@ -216,7 +212,7 @@
                 <InArgument x:TypeArguments="x:String">[Workbook.GetWorkbookSheet(0)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Sequence sap:VirtualizedContainerService.HintSize="526,4619.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence sap:VirtualizedContainerService.HintSize="580,4619.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_7">
               <Sequence.Variables>
                 <Variable x:TypeArguments="ui:GenericValue" Name="headerCell" />
               </Sequence.Variables>
@@ -447,13 +443,20 @@
                 </If.Else>
               </If>
             </Sequence>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_PriorRC502dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="526,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[out_PriorRC502Name]">
-              <ui:ExcelReadRange.Range>
-                <InArgument x:TypeArguments="x:String">
-                  <Literal x:TypeArguments="x:String" Value="" />
-                </InArgument>
-              </ui:ExcelReadRange.Range>
-            </ui:ExcelReadRange>
+            <If Condition="[correctHeaders]" sap:VirtualizedContainerService.HintSize="580,210.666666666667" sap2010:WorkflowViewState.IdRef="If_18">
+              <If.Then>
+                <ui:ExcelReadRange AddHeaders="True" DataTable="[out_PriorRC502dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[out_PriorRC502Name]">
+                  <ui:ExcelReadRange.Range>
+                    <InArgument x:TypeArguments="x:String">
+                      <Literal x:TypeArguments="x:String" Value="" />
+                    </InArgument>
+                  </ui:ExcelReadRange.Range>
+                </ui:ExcelReadRange>
+              </If.Then>
+              <If.Else>
+                <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_2" Reason="[&quot;The RC502 file with file path (&quot; + priorRC502Filepath + &quot;) does not have the correct headers needed for the bot to execute properly.&quot;]" />
+              </If.Else>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>

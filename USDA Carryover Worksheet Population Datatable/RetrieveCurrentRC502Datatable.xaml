@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>986.666666666667,6702.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>986.666666666667,6923.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>RetrieveCurrentRC502Datatable_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -62,24 +62,20 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="RetrieveCurrentRC502Datatable" sap:VirtualizedContainerService.HintSize="996.666666666667,6538" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="RetrieveCurrentRC502Datatable" sap:VirtualizedContainerService.HintSize="996.666666666667,6718.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="Workbook" />
       <Variable x:TypeArguments="x:String" Name="currentRC502Filepath" />
       <Variable x:TypeArguments="x:String" Name="fiscalYearString" />
       <Variable x:TypeArguments="x:String" Name="folderPath" />
-      <Variable x:TypeArguments="x:Boolean" Name="correctHeaders">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" Value="True" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="True" Name="correctHeaders" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_RunType = &quot;Estimated&quot;]" sap:VirtualizedContainerService.HintSize="954.666666666667,1251.33333333333" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_RunType = &quot;Estimated&quot;]" sap:VirtualizedContainerService.HintSize="954.666666666667,1253.33333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="304,358" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
@@ -174,19 +170,19 @@
       </If.Else>
     </If>
     <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="954.666666666667,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="954.666666666667,4994" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[currentRC502Filepath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="954.666666666667,5172.66666666667" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" Workbook="[Workbook]" WorkbookPath="[currentRC502Filepath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="568,4885.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="622,5064" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="526,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="580,62" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[out_CurrentRC502Name]</OutArgument>
               </Assign.To>
@@ -194,7 +190,7 @@
                 <InArgument x:TypeArguments="x:String">[Workbook.GetWorkbookSheet(0)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Sequence sap:VirtualizedContainerService.HintSize="526,4593.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence sap:VirtualizedContainerService.HintSize="580,4619.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_6">
               <Sequence.Variables>
                 <Variable x:TypeArguments="ui:GenericValue" Name="headerCell" />
               </Sequence.Variables>
@@ -208,9 +204,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Prd Key&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+              <If Condition="[headerCell.ToString = &quot;Prd Key&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_4">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_8">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -225,9 +221,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Agn Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_5">
+              <If Condition="[headerCell.ToString = &quot;Agn Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_5">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_9">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_9">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -242,9 +238,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Goa Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_6">
+              <If Condition="[headerCell.ToString = &quot;Goa Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_6">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_10">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -259,9 +255,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Apro Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_7">
+              <If Condition="[headerCell.ToString = &quot;Apro Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_7">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_11">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -276,9 +272,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Fscl Yr&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_8">
+              <If Condition="[headerCell.ToString = &quot;Fscl Yr&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_8">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_12">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -293,9 +289,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Alot Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_9">
+              <If Condition="[headerCell.ToString = &quot;Alot Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_9">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_13">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_13">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -310,9 +306,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Maj Cls Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_10">
+              <If Condition="[headerCell.ToString = &quot;Maj Cls Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_10">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_14">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_14">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -327,9 +323,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Obj Cls Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_11">
+              <If Condition="[headerCell.ToString = &quot;Obj Cls Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_11">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_15">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_15">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -344,9 +340,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Ppb Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_12">
+              <If Condition="[headerCell.ToString = &quot;Ppb Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_12">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_16">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_16">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -361,9 +357,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Obl Exp Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_13">
+              <If Condition="[headerCell.ToString = &quot;Obl Exp Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_13">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_17">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_17">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -378,9 +374,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Trsry Sym Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_14">
+              <If Condition="[headerCell.ToString = &quot;Trsry Sym Cd&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_14">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_18">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -395,9 +391,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Cur Alot Amt&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_16">
+              <If Condition="[headerCell.ToString = &quot;Cur Alot Amt&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_16">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_20">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_20">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -412,9 +408,9 @@
                   <OutArgument x:TypeArguments="ui:GenericValue">[headerCell]</OutArgument>
                 </ui:ExcelReadCell.Result>
               </ui:ExcelReadCell>
-              <If Condition="[headerCell.ToString = &quot;Cuml Obl Amt&quot;]" sap:VirtualizedContainerService.HintSize="484,210.666666666667" sap2010:WorkflowViewState.IdRef="If_17">
+              <If Condition="[headerCell.ToString = &quot;Cuml Obl Amt&quot;]" sap:VirtualizedContainerService.HintSize="484,212.666666666667" sap2010:WorkflowViewState.IdRef="If_17">
                 <If.Else>
-                  <Assign sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_21">
+                  <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_21">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[correctHeaders]</OutArgument>
                     </Assign.To>
@@ -425,13 +421,20 @@
                 </If.Else>
               </If>
             </Sequence>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_CurrentRC502dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="526,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[out_CurrentRC502Name]">
-              <ui:ExcelReadRange.Range>
-                <InArgument x:TypeArguments="x:String">
-                  <Literal x:TypeArguments="x:String" Value="" />
-                </InArgument>
-              </ui:ExcelReadRange.Range>
-            </ui:ExcelReadRange>
+            <If Condition="[correctHeaders]" sap:VirtualizedContainerService.HintSize="580,210.666666666667" sap2010:WorkflowViewState.IdRef="If_18">
+              <If.Then>
+                <ui:ExcelReadRange AddHeaders="True" DataTable="[out_CurrentRC502dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[out_CurrentRC502Name]">
+                  <ui:ExcelReadRange.Range>
+                    <InArgument x:TypeArguments="x:String">
+                      <Literal x:TypeArguments="x:String" Value="" />
+                    </InArgument>
+                  </ui:ExcelReadRange.Range>
+                </ui:ExcelReadRange>
+              </If.Then>
+              <If.Else>
+                <TerminateWorkflow DisplayName="Terminate Workflow" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_2" Reason="[&quot;The RC502 file at file path (&quot; + currentRC502Filepath + &quot;) does not have the correct headers for the bot to execute properly.&quot;]" />
+              </If.Else>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
